@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abdullah Zahoor - AI Developer, Agentic AI Engineer & Python Developer. Building the future with intelligent solutions.">
+    <meta name="theme-color" content="#0a0a0f">
+    <title>Abdullah Zahoor | AI Developer & Engineer</title>
+
+    <!-- Preconnect for fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Audio Element for Background Music -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="audio/background-music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Toggle Button -->
+    <button id="music-toggle" class="music-btn" title="Toggle Music">
+        <i class="fas fa-volume-mute"></i>
+        <span class="music-tooltip">Click to enable music</span>
+    </button>
+
+    <!-- 3D Background Canvas -->
+    <div id="canvas-container">
+        <canvas id="bg-canvas"></canvas>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="bg-overlay"></div>
+    <div class="grid-flooring"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-glow"></div>
+    <div class="cursor-dot"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home" class="logo">AZ</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-visual">
+                <div class="profile-3d">
+                    <div class="profile-glow"></div>
+                    <div class="orbit-ring orbit-ring-1">
+                        <div class="orbit-particle"></div>
+                    </div>
+                    <div class="orbit-ring orbit-ring-2">
+                        <div class="orbit-particle"></div>
+                    </div>
+                    <div class="orbit-ring orbit-ring-3"></div>
+                    <div class="profile-core">
+                        <img src="images/profile.jpg" alt="Abdullah Zahoor">
+                    </div>
+                </div>
+            </div>
+            <div class="hero-text">
+                <div class="greeting-badge">
+                    <span>Available for Work</span>
+                </div>
+                <h1 class="hero-title">ABDULLAH</h1>
+                <div class="typing-container">
+                    <span class="typing-text"></span>
+                </div>
+                <p class="hero-description">
+                    Crafting intelligent solutions and immersive digital experiences. I blend cutting-edge AI with elegant design to build the future of technology. Specializing in Agentic AI, Python development, and full-stack solutions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Hire Me
+                    </a>
+                    <a href="#projects" class="btn btn-secondary">
+                        <i class="fas fa-eye"></i>
+                        View Work
+                    </a>
+                </div>
+                <div class="tech-pills">
+                    <span class="tech-pill"><i class="fab fa-python"></i> Python</span>
+                    <span class="tech-pill"><i class="fas fa-brain"></i> AI/ML</span>
+                    <span class="tech-pill"><i class="fas fa-robot"></i> Agents</span>
+                    <span class="tech-pill"><i class="fas fa-code"></i> Full Stack</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <div class="section-header reveal">
+                <span class="section-label">About Me</span>
+                <h2 class="section-title">The Developer</h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">Passionate about creating intelligent solutions that make a difference</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-glass reveal-left">
+                    <div class="about-glass-content">
+                        <div class="about-text">
+                            <h3>Building The Future With AI</h3>
+                            <p>
+                                I'm <span class="highlight">Abdullah Zahoor</span>, a passionate AI Developer and Engineer driven by the endless possibilities of technology. With expertise spanning agentic AI systems, Python development, and full-stack applications, I bring a holistic approach to every project.
+                            </p>
+                            <p>
+                                My journey is defined by a relentless pursuit of innovation and excellence. Whether it's building intelligent autonomous agents, crafting seamless user experiences, or architecting robust backend systems, I thrive on turning complex challenges into elegant solutions.
+                            </p>
+                            <p>
+                                I believe in the power of AI to transform industries and improve lives. Let's build something extraordinary together.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-card reveal-scale stagger-1">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-card reveal-scale stagger-2">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-card reveal-scale stagger-3">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                    <div class="stat-card reveal-scale stagger-4">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Commitment</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="section-header reveal">
+            <span class="section-label">Expertise</span>
+            <h2 class="section-title">My Skills</h2>
+            <div class="section-line"></div>
+            <p class="section-subtitle">Technologies and tools I use to bring ideas to life</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card reveal stagger-1">
+                <div class="skill-card-glow"></div>
+                <div class="skill-icon-wrapper">
+                    <i class="fas fa-robot skill-icon"></i>
+                </div>
+                <h3>Agentic AI</h3>
+                <p>Building autonomous AI agents with reasoning, planning, and tool-use capabilities using modern frameworks.</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-header">
+                        <span class="skill-progress-label">Proficiency</span>
+                        <span class="skill-progress-value">95%</span>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress-fill" data-width="95%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card reveal stagger-2">
+                <div class="skill-card-glow"></div>
+                <div class="skill-icon-wrapper">
+                    <i class="fab fa-python skill-icon"></i>
+                </div>
+                <h3>Python Development</h3>
+                <p>Expert-level Python programming for AI/ML, automation, web backends, and data processing pipelines.</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-header">
+                        <span class="skill-progress-label">Proficiency</span>
+                        <span class="skill-progress-value">98%</span>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress-fill" data-width="98%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card reveal stagger-3">
+                <div class="skill-card-glow"></div>
+                <div class="skill-icon-wrapper">
+                    <i class="fas fa-brain skill-icon"></i>
+                </div>
+                <h3>Machine Learning</h3>
+                <p>Deep learning, NLP, computer vision, and LLM fine-tuning for production-ready AI solutions.</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-header">
+                        <span class="skill-progress-label">Proficiency</span>
+                        <span class="skill-progress-value">90%</span>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress-fill" data-width="90%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card reveal stagger-4">
+                <div class="skill-card-glow"></div>
+                <div class="skill-icon-wrapper">
+                    <i class="fas fa-comments skill-icon"></i>
+                </div>
+                <h3>Chatbot Development</h3>
+                <p>Intelligent conversational AI with context awareness, memory, and multi-platform deployment.</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-header">
+                        <span class="skill-progress-label">Proficiency</span>
+                        <span class="skill-progress-value">92%</span>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress-fill" data-width="92%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card reveal stagger-5">
+                <div class="skill-card-glow"></div>
+                <div class="skill-icon-wrapper">
+                    <i class="fas fa-laptop-code skill-icon"></i>
+                </div>
+                <h3>Web Development</h3>
+                <p>Full-stack web development with modern frameworks, responsive design, and seamless UX.</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-header">
+                        <span class="skill-progress-label">Proficiency</span>
+                        <span class="skill-progress-value">88%</span>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress-fill" data-width="88%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card reveal stagger-6">
+                <div class="skill-card-glow"></div>
+                <div class="skill-icon-wrapper">
+                    <i class="fas fa-database skill-icon"></i>
+                </div>
+                <h3>Backend & APIs</h3>
+                <p>Scalable server architecture, REST/GraphQL APIs, database design, and cloud deployment.</p>
+                <div class="skill-progress">
+                    <div class="skill-progress-header">
+                        <span class="skill-progress-label">Proficiency</span>
+                        <span class="skill-progress-value">85%</span>
+                    </div>
+                    <div class="skill-progress-bar">
+                        <div class="skill-progress-fill" data-width="85%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="section-header reveal">
+            <span class="section-label">Portfolio</span>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="section-line"></div>
+            <p class="section-subtitle">A selection of my recent work and experiments</p>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card reveal stagger-1">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop" alt="AI Agent Project">
+                    <div class="project-image-overlay"></div>
+                    <span class="project-category">Agentic AI</span>
+                </div>
+                <div class="project-content">
+                    <h3>Autonomous AI Assistant</h3>
+                    <p>An intelligent agent capable of web browsing, data analysis, code execution, and task automation with memory and reasoning.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>LangChain</span>
+                        <span>OpenAI</span>
+                        <span>FastAPI</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal stagger-2">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop" alt="Chatbot Project">
+                    <div class="project-image-overlay"></div>
+                    <span class="project-category">Chatbot</span>
+                </div>
+                <div class="project-content">
+                    <h3>Enterprise Support Bot</h3>
+                    <p>Multi-platform customer support chatbot with knowledge base integration, sentiment analysis, and human handoff capabilities.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Rasa</span>
+                        <span>Redis</span>
+                        <span>Docker</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal stagger-3">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="ML Dashboard">
+                    <div class="project-image-overlay"></div>
+                    <span class="project-category">Data & ML</span>
+                </div>
+                <div class="project-content">
+                    <h3>ML Model Dashboard</h3>
+                    <p>Real-time machine learning monitoring dashboard with model performance tracking, drift detection, and explainable AI features.</p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>Python</span>
+                        <span>TensorFlow</span>
+                        <span>D3.js</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal stagger-4">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="Web Application">
+                    <div class="project-image-overlay"></div>
+                    <span class="project-category">Web App</span>
+                </div>
+                <div class="project-content">
+                    <h3>AI Content Platform</h3>
+                    <p>Content generation platform powered by LLMs with SEO optimization, multi-language support, and collaborative editing.</p>
+                    <div class="project-tech">
+                        <span>Next.js</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                        <span>AWS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal stagger-5">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&h=400&fit=crop" alt="API Service">
+                    <div class="project-image-overlay"></div>
+                    <span class="project-category">API</span>
+                </div>
+                <div class="project-content">
+                    <h3>NLP API Service</h3>
+                    <p>Scalable REST API for natural language processing tasks including sentiment analysis, entity extraction, and text summarization.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>FastAPI</span>
+                        <span>Redis</span>
+                        <span>Kubernetes</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card reveal stagger-6">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=400&fit=crop" alt="Automation Tool">
+                    <div class="project-image-overlay"></div>
+                    <span class="project-category">Automation</span>
+                </div>
+                <div class="project-content">
+                    <h3>Workflow Automation</h3>
+                    <p>Intelligent automation system for business processes with AI-powered decision making and integration capabilities.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Celery</span>
+                        <span>RabbitMQ</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link primary">
+                            <i class="fas fa-external-link-alt"></i>
+                            Live Demo
+                        </a>
+                        <a href="#" class="project-link">
+                            <i class="fab fa-github"></i>
+                            Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="section-header reveal">
+                <span class="section-label">Contact</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
+                <p class="section-subtitle">Let's discuss your next project or collaboration</p>
+            </div>
+
+            <div class="contact-glass reveal-scale">
+                <div class="contact-glow contact-glow-1"></div>
+                <div class="contact-glow contact-glow-2"></div>
+
+                <form class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" class="form-input" id="name" placeholder=" " required>
+                            <label class="form-label" for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" id="email" placeholder=" " required>
+                            <label class="form-label" for="email">Your Email</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <input type="text" class="form-input" id="subject" placeholder=" " required>
+                            <label class="form-label" for="subject">Subject</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group full-width">
+                            <textarea class="form-input" id="message" placeholder=" " required></textarea>
+                            <label class="form-label" for="message">Your Message</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <div class="contact-info reveal">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>Email</h4>
+                    <p>abdullahzahoorsdk130@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h4>Phone</h4>
+                    <p>0324 277008</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4>Location</h4>
+                    <p>Ali Town, Yousaf Kamal Road</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-glow"></div>
+        <div class="footer-content">
+            <div class="footer-social">
+                <a href="https://github.com/Abdullahzahoor755" class="social-icon" title="GitHub" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/muhammad-abdullah-879433345/" class="social-icon" title="LinkedIn" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-icon" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon" title="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61555727889878" class="social-icon" title="Facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="mailto:abdullahzahoorsdk130@gmail.com" class="social-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="footer-text">
+                Designed & Built with <span>❤</span> by Abdullah Zahoor | © 2026 All Rights Reserved
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
