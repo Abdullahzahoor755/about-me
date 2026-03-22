@@ -1,50 +1,56 @@
 // Netlify Serverless Function - Claude API Proxy
-// This keeps your API key secure on the server side
+// CommonJS format - Compatible with all Netlify setups
 
-export default async (request, context) => {
-  // CORS headers for frontend requests
-  const corsHeaders = {
+exports.handler = async (event, context) => {
+  // CORS headers
+  const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Content-Type': 'application/json'
   };
 
-  // Handle preflight OPTIONS request
-  if (request.method === 'OPTIONS') {
-    return new Response(null, { headers: corsHeaders });
+  // Handle preflight OPTIONS
+  if (event.httpMethod === 'OPTIONS') {
+    return {
+      statusCode: 200,
+      headers,
+      body: ''
+    };
   }
 
-  // Only allow POST requests
-  if (request.method !== 'POST') {
-    return new Response(
-      JSON.stringify({ error: 'Method not allowed' }),
-      { status: 405, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-    );
+  // Only allow POST
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      headers,
+      body: JSON.stringify({ error: 'Method not allowed' })
+    };
   }
 
   try {
-    // Parse the incoming request
-    const { message, history = [] } = await request.json();
+    const { message, history = [] } = JSON.parse(event.body || '{}');
 
     if (!message) {
-      return new Response(
-        JSON.stringify({ error: 'Message is required' }),
-        { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({ error: 'Message is required' })
+      };
     }
 
-    // Get API key from Netlify environment variables
-    const apiKey = Netlify.env.get('ANTHROPIC_API_KEY');
+    // Get API key from environment variable
+    const apiKey = process.env.ANTHROPIC_API_KEY;
 
     if (!apiKey) {
-      console.error('ANTHROPIC_API_KEY not configured');
-      return new Response(
-        JSON.stringify({ error: 'Server configuration error' }),
-        { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
-      );
+      console.error('ANTHROPIC_API_KEY not set');
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'API key not configured' })
+      };
     }
 
-    // System prompt for the AI assistant
     const systemPrompt = `You are a personal AI assistant on Abdullah's portfolio website.
 Your job is to impress visitors and explain Abdullah's work confidently.
 
@@ -74,22 +80,12 @@ When visitors ask about Abdullah:
 Keep responses short, friendly, and professional.
 Respond in the same language the visitor uses (Urdu or English).`;
 
-    // Build messages array from history
+    // Build messages
     const messages = [];
-
-    // Add conversation history
     for (const msg of history) {
-      messages.push({
-        role: msg.role,
-        content: msg.content
-      });
+      messages.push({ role: msg.role, content: msg.content });
     }
-
-    // Add current user message
-    messages.push({
-      role: 'user',
-      content: message
-    });
+    messages.push({ role: 'user', content: message });
 
     // Call Claude API
     const response = await fetch('https://api.anthropic.com/v1/messages', {
@@ -108,32 +104,32 @@ Respond in the same language the visitor uses (Urdu or English).`;
     });
 
     if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}));
-      console.error('Claude API error:', errorData);
-      throw new Error(`Claude API returned ${response.status}`);
+      const error = await response.text();
+      console.error('Claude API error:', error);
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'AI service error' })
+      };
     }
 
     const data = await response.json();
 
-    // Return the AI response
-    return new Response(
-      JSON.stringify({
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({
         response: data.content[0].text,
         role: 'assistant'
-      }),
-      {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      }
-    );
+      })
+    };
 
   } catch (error) {
     console.error('Function error:', error);
-    return new Response(
-      JSON.stringify({ error: 'Failed to get response from AI' }),
-      {
-        status: 500,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-      }
-    );
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({ error: 'Failed to process request' })
+    };
   }
 };
