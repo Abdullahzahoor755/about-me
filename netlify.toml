@@ -1,0 +1,17 @@
+[build]
+  # Define the functions directory for Netlify
+  functions = "netlify/functions"
+
+[[redirects]]
+  # Redirect API calls to the serverless function
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+[[headers]]
+  # CORS headers for the API endpoint
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"
